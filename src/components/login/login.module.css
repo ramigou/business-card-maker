@@ -1,0 +1,49 @@
+@value myDarkBrown, makerGreen, makerWhite, makerBlack, makerLightPink from '../../common/colors.css';
+
+.login {
+  width: 35em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: makerWhite;
+  box-shadow: 6px 5px 5px 1px rgba(79, 79, 79, 0.5);
+}
+
+.msg {
+  font-size: 1.7em;
+  margin: 0.8em;
+  color: myDarkBrown;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0.5rem;
+}
+
+.item {
+  margin-bottom: 0.5em;
+}
+
+.button {
+  width: 90%;
+  height: 2.5em;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0.15rem solid myDarkBrown;
+  outline: 0;
+  transition: transform 250ms ease-in-out;
+  font-weight: bolder;
+}
+
+.button:hover {
+  transform: scale(1.03);
+  background-color: myDarkBrown;
+  color: makerWhite;
+  font-weight: bolder;
+}

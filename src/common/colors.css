@@ -8,3 +8,10 @@
 @value makerShadow: rgba(217, 217, 217, 1);
 @value makerColorful: linear-gradient(166deg, rgba(237, 193, 211, 1) 0%,rgba(212, 149, 161, 1) 60%, rgba(162, 63, 63, 1) 100%, rgba(127, 188, 242, 1) 100%);
 @value makerWheat: wheat;
+
+@value myViolet: #86869F;
+@value myLigthtMing: #D6E1E2;
+@value myDarkMint: #ABB7C3;
+@value myDarkBrown: #544E54;
+@value myBrown: #665359;
+@value myLightBrown: #BDBDAF;

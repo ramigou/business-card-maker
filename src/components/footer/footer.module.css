@@ -1,0 +1,13 @@
+@value myDarkBrown, makerWhite, makerBlack from '../../common/colors.css';
+
+.footer {
+  width: 100%;
+  background-color: myDarkBrown;
+  text-align: center;
+}
+
+.title {
+  padding: 0.5em;
+  color: makerWhite;
+  font-size: 0.9em;
+}

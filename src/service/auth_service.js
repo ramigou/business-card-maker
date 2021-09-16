@@ -1,11 +1,31 @@
-import firebase from "firebase";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider
+} from "firebase/auth";
 
 class AuthService {
-  login(providerName) {
-    // firebase의 인증 객체이름이 XXXAuthProvider로 동일하므로 아래와 같이 작성 가능
-    const authProvider = new firebase.auth[`${providerName}AuthProvider`]();
+  constructor() {
+    this.firebaseAuth = getAuth();
+    this.googleProvider = new GoogleAuthProvider();
+    this.githubProvider = new GithubAuthProvider();
+  }
 
-    return firebase.auth().signInWithPopup(providerName);
+  getProvider(providerName) {
+    switch (providerName) {
+      case "Google":
+        return this.googleProvider;
+      case "Github":
+        return this.githubProvider;
+      default:
+        throw new Error(`${providerName}: 지원하지 않는 로그인 방식입니다.`);
+    }
+  }
+
+  login(providerName) {
+    const authProvider = this.getProvider(providerName);
+    return signInWithPopup(this.firebaseAuth, authProvider);
   }
 }
 

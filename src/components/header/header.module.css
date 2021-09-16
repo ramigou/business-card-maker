@@ -1,0 +1,33 @@
+@value myDarkBrown, makerGreen, makerWhite, makerBlack from '../../common/colors.css';
+
+.header {
+  width: 100%;
+  text-align: center;
+  padding: 1em;
+  background-color: myDarkBrown;
+  position: relative;
+}
+
+.logo {
+  width: 4em;
+  margin-bottom: 0.2em;
+}
+
+.title {
+  margin: 0;
+  color: makerWhite;
+  font-size: 2em;
+}
+
+.logout {
+  position: absolute;
+  right: 3em;
+  top: 1em;
+  padding: 0.8em;
+  border-radius: 20%;
+  background-color: makerBlack;
+  color: makerWhite;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+}
