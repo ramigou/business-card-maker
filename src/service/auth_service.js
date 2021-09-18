@@ -1,5 +1,6 @@
 import {
   getAuth,
+  onAuthStateChanged,
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider
@@ -12,6 +13,7 @@ class AuthService {
     this.githubProvider = new GithubAuthProvider();
   }
 
+  // 로그인 형태
   getProvider(providerName) {
     switch (providerName) {
       case "Google":
@@ -23,9 +25,23 @@ class AuthService {
     }
   }
 
+  // login 함수
   login(providerName) {
     const authProvider = this.getProvider(providerName);
     return signInWithPopup(this.firebaseAuth, authProvider);
+  }
+
+  // 로그인 상태 확인 함수
+  onAuthChange(onUserChanged) {
+    onAuthStateChanged(this.firebaseAuth, (user) => {
+      onUserChanged(user);
+    });
+  }
+
+  // 로그아웃 함수
+  // firebase App 이용으로 변경 예정
+  logout() {
+    this.firebaseAuth.signOut();
   }
 }
 
