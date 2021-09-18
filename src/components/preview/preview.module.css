@@ -1,0 +1,13 @@
+@value makerBlack, myViolet, myDarkMint, myLigthtMint from '../../common/colors.css';
+
+.preview {
+  flex-basis: 50%;
+  background-color: myDarkMint;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1em;
+  color: makerBlack;
+}

@@ -1,4 +1,4 @@
-@value myDarkBrown, makerGreen, makerWhite, makerBlack from '../../common/colors.css';
+@value myDarkBrown, myLightBrown, makerGreen, makerWhite, makerBlack from '../../common/colors.css';
 
 .header {
   width: 100%;
@@ -25,8 +25,8 @@
   top: 1em;
   padding: 0.8em;
   border-radius: 20%;
-  background-color: makerBlack;
-  color: makerWhite;
+  background-color: myLightBrown;
+  color: myDarkBrown;
   outline: none;
   border: 0;
   cursor: pointer;
