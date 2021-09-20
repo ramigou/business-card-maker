@@ -3,8 +3,7 @@ import Button from "../button/button";
 import styles from "./card_edit_form.module.css";
 
 const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
-  const { name, company, theme, title, email, message, fileName, fileURL } =
-    card;
+  const { name, company, title, email, message, fileName } = card;
 
   // 입력 값에 변화가 생길 경우 처리
   const onChange = (event) => {
