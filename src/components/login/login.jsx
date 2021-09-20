@@ -17,6 +17,7 @@ const Login = ({ authService }) => {
   const onLogin = (event) => {
     authService
       .login(event.currentTarget.textContent) // 버튼 누른 곳의 text 가져오기
+      // .then(console.log);
       .then((data) => goToMaker(data.user.uid)); // 로그인 성공 후 객체를 data로 받고 그 안의 uid 추출
   };
 

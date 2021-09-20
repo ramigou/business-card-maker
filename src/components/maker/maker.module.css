@@ -12,6 +12,7 @@
 .container {
   display: flex;
   flex: 1;
+  min-height: 0;
 }
 
 @media screen and (max-width: mediaQuery) {

@@ -6,49 +6,41 @@ import Header from "../header/header";
 import Preview from "../preview/preview";
 import styles from "./maker.module.css";
 
-const Maker = ({ FileInput, authService }) => {
-  const [cards, setCards] = useState({
-    1: {
-      id: "1",
-      name: "Jimin",
-      company: "Hive",
-      theme: "dark",
-      title: "software engineer",
-      email: "jimin@gmail.com",
-      message: "hello~",
-      fileURL: null
-    },
-    2: {
-      id: "2",
-      name: "RM",
-      company: "Hive",
-      theme: "light",
-      title: "software engineer",
-      email: "RM@gmail.com",
-      message: "hello~",
-      fileURL: null
-    },
-    3: {
-      id: "3",
-      name: "JungKook",
-      company: "Hive",
-      theme: "colorful",
-      title: "software engineer",
-      email: "jk@gmail.com",
-      message: "BTS",
-      fileURL: "jk.png"
-    }
-  });
+const Maker = ({ FileInput, authService, cardRepository }) => {
+  const historyState = useHistory().state;
   const history = useHistory();
+  const [cards, setCards] = useState({});
+  const [userId, setUserId] = useState(historyState && historyState.id);
 
   const onLogout = () => {
     authService.logout();
   };
 
+  // 로직마다 useEffect를 따로 구현할 수 있다는 것이 장점
+  // 마운트, 사용자 변경될 때마다 카드 읽어오기
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+
+    // 콜백 함수를 두번째 인자로 전달한 것
+    const stopSync = cardRepository.syncCards(userId, (cards) => {
+      setCards(cards);
+    });
+
+    // unmount 됐을 때 불필요한 네트워크 사용을 제어
+    return () => {
+      stopSync();
+    };
+  }, [userId]);
+
   // 로그아웃 상태라면 메인 페이지로 이동
   useEffect(() => {
     authService.onAuthChange((user) => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+        // console.log(`로그인 완료 userID: ${userId}`);
+      } else {
         history.push("/");
       }
     });
@@ -72,6 +64,7 @@ const Maker = ({ FileInput, authService }) => {
       updated[card.id] = card;
       return updated;
     });
+    cardRepository.saveCard(userId, card);
   };
 
   // 명함 삭제 함수
@@ -81,6 +74,7 @@ const Maker = ({ FileInput, authService }) => {
       delete updated[card.id];
       return updated;
     });
+    cardRepository.removeCard(userId, card);
   };
 
   // 컴포넌트 prop을 우선으로 전달..
