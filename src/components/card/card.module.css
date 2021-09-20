@@ -8,7 +8,7 @@
   border-radius: 1em;
   padding: 0.2em 0;
   margin-bottom: 1em;
-  box-shadow: 6px 6px 8 px 0px makerShadow;
+  box-shadow: 6px 6px 8px 0px makerShadow;
   max-width: 30rem;
 }
 
@@ -58,6 +58,6 @@
   display: block;
   width: 90%;
   height: 2px;
-  background-color: aqua;
+  background-color: myDarkMint;
   transform: translateY(0.5em);
 }

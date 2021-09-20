@@ -1,50 +1,71 @@
-import React from "react";
+import React, { useRef } from "react";
 import Button from "../button/button";
 import ImageFileInput from "../image_file_input/image_file_input";
 import styles from "./card_edit_form.module.css";
 
-const CardEditForm = ({ card }) => {
+const CardEditForm = ({ card, updateCard, deleteCard }) => {
   const { name, company, theme, title, email, message, fileName, fileURL } =
     card;
 
-  const onSubmit = () => {
-    //
+  // 입력 값에 변화가 생길 경우 처리
+  const onChange = (event) => {
+    if (event.currentTarget == null) {
+      return;
+    }
+    event.preventDefault();
+
+    // 해당 input의 name을 key, 그곳의 value를 새로 업데이트 하는 과정
+    // console.log(`${event.currentTarget.name}: ${event.currentTarget.value}`);
+    updateCard({
+      ...card,
+      [event.currentTarget.name]: event.currentTarget.value
+    });
   };
+
+  const onSubmit = () => {
+    deleteCard(card);
+  };
+
   return (
     <form className={styles.form}>
       <input
         className={styles.input}
         type="text"
         name="name"
-        value={card.name}
+        value={name}
+        onChange={onChange}
       />
       <input
         className={styles.input}
         type="text"
         name="company"
-        value={card.company}
+        value={company}
+        onChange={onChange}
       />
-      <select className={styles.select} name="theme">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="colorful">Colorful</option>
+      <select className={styles.select} name="theme" onChange={onChange}>
+        <option value="light">light</option>
+        <option value="dark">dark</option>
+        <option value="colorful">colorful</option>
       </select>
       <input
         className={styles.input}
         type="text"
         name="title"
-        value={card.title}
+        value={title}
+        onChange={onChange}
       />
       <input
         className={styles.input}
         type="text"
         name="email"
-        value={card.email}
+        value={email}
+        onChange={onChange}
       />
       <textarea
         className={styles.textarea}
         name="message"
-        value={card.message}
+        value={message}
+        onChange={onChange}
       />
       <div className={styles.fileInput}>
         <ImageFileInput />
