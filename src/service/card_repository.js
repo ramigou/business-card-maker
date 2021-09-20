@@ -19,7 +19,7 @@ class CardRepository {
       // 데이터가 업데이트 될 때마다 콜백함수가 호출됨
       data && onUpdate(data);
     });
-    return () => ref.off();
+    return () => ref.off(getDatabase(), onValue());
   }
 }
 

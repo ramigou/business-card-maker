@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Editor from "../editor/editor";
 import Footer from "../footer/footer";
@@ -12,9 +12,11 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(historyState && historyState.id);
 
-  const onLogout = () => {
+  // prop, state이 변경되어도 이 함수를 한번 호출해서 계속 사용한다는 의미
+  // authService 변경되면 다시 호출하도록 설정
+  const onLogout = useCallback(() => {
     authService.logout();
-  };
+  }, [authService]);
 
   // 로직마다 useEffect를 따로 구현할 수 있다는 것이 장점
   // 마운트, 사용자 변경될 때마다 카드 읽어오기

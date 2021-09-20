@@ -1,15 +1,26 @@
-@value makerLightGrey, makerBlack, myBrown, myLigthtMint from '../../common/colors.css';
+@value myViolet, makerWhite, myLightBrown, makerLightGrey, makerBlack, myBrown, myLigthtMint from '../../common/colors.css';
 
 .button {
-  background-color: myBrown;
   color: makerWhite;
   font-weight: bold;
   cursor: pointer;
   padding: 0.5em;
   flex: 1 1 50%;
   font-size: 0.8rem;
+  border-top: 0;
+  border-left: 0;
+  border-bottom: 1px solid makerBlack;
+  border-right: 1px solid makerBlack;
 }
 
 .button:hover {
   opacity: 0.8;
+}
+
+.button.add {
+  background-color: myViolet;
+}
+
+.button.delete {
+  background-color: myBrown;
 }

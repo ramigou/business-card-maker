@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import ReactDOM from "react-dom";
 import "./index.module.css";
 import App from "./app";
@@ -12,9 +12,9 @@ const authService = new AuthService(firebaseApp);
 const imageUploader = new ImageUploader();
 // Dependency Injection (*** 공부 필요..!)
 // 확장성을 고려해 props 전체를 전달, 필수로 필요한 imageUploader prop은 인젝트가 되어 있음
-const FileInput = (props) => (
+const FileInput = memo((props) => (
   <ImageFileInput {...props} imageUploader={imageUploader} />
-);
+));
 const cardRepository = new CardRepository();
 
 ReactDOM.render(

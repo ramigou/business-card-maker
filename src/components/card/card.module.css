@@ -1,4 +1,4 @@
-@value makerColorful, makerBlack, myDarkMint, makerShadow, makerWhite from '../../common/colors.css';
+@value myPurple, makerColorful, makerBlack, myDarkMint, makerShadow, makerWhite from '../../common/colors.css';
 
 .card {
   display: flex;
@@ -19,6 +19,11 @@
 .card.light {
   background-color: makerWhite;
   color: makerBlack;
+}
+
+.card.purple {
+  background-color: myPurple;
+  color: makerWhite;
 }
 .card.colorful {
   background: makerColorful;

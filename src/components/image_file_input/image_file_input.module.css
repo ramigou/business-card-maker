@@ -1,4 +1,4 @@
-@value makerLightPink, makerLightGrey, myLigthtMint, makerPink from '../../common/colors.css';
+@value makerWhite, myLightBrown, myViolet, myDarkMint, makerLightPink, makerLightGrey, myLigthtMint, makerPink from '../../common/colors.css';
 
 .container {
   width: 100%;
@@ -20,17 +20,18 @@
   border: 0;
   outline: 0;
   font-size: 0.8rem;
+  opacity: 0.8;
 }
 
 .button.grey {
   background-color: makerLightGrey;
 }
 .button.pink {
-  background-color: makerLightPink;
+  background-color: myLightBrown;
 }
 
 .button:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .loading {

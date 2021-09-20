@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./header.module.css";
 
-const Header = ({ onLogout }) => (
+const Header = memo(({ onLogout }) => (
   <header className={styles.header}>
     {/* onLogout이 true로 넘어온다면 Logout 버튼을 보여줌 */}
     {onLogout && (
@@ -12,6 +12,6 @@ const Header = ({ onLogout }) => (
     <img className={styles.logo} src="/images/logo.png" alt="logo" />
     <h1 className={styles.title}>Business Card Maker</h1>
   </header>
-);
+));
 
 export default Header;

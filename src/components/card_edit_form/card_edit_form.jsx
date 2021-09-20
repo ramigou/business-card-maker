@@ -47,6 +47,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
       <select className={styles.select} name="theme" onChange={onChange}>
         <option value="light">light</option>
         <option value="dark">dark</option>
+        <option value="purple">purple</option>
         <option value="colorful">colorful</option>
       </select>
       <input

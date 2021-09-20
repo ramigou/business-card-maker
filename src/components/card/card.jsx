@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./card.module.css";
 
-const Card = ({ card }) => {
+const Card = memo(({ card }) => {
   const DEFAULT_IMG = "/images/default_logo.png";
   const { name, company, theme, title, email, message, fileURL } = card;
   // 프로필 이미지가 없다면(null) 기본 이미지로 대체
@@ -18,7 +18,7 @@ const Card = ({ card }) => {
       </div>
     </li>
   );
-};
+});
 
 // theme별로 카드의 색상을 정의해주는 함수
 function getStyles(theme) {
@@ -27,6 +27,8 @@ function getStyles(theme) {
       return styles.dark;
     case "light":
       return styles.light;
+    case "purple":
+      return styles.purple;
     case "colorful":
       return styles.colorful;
     default:
