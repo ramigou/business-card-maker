@@ -1,8 +1,9 @@
-@value makerBlack, myViolet, myLigthtMint from '../../common/colors.css';
+@value makerLightGrey, makerBlack, myViolet, myLigthtMint from '../../common/colors.css';
 
 .editor {
   flex-basis: 50%;
-  background-color: myLigthtMint;
+  border-right: 2px solid makerLightGrey;
+  padding: 0.5em 2em;
 }
 
 .title {
