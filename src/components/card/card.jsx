@@ -3,8 +3,7 @@ import styles from "./card.module.css";
 
 const Card = ({ card }) => {
   const DEFAULT_IMG = "/images/default_logo.png";
-  const { name, company, theme, title, email, message, fileName, fileURL } =
-    card;
+  const { name, company, theme, title, email, message, fileURL } = card;
   // 프로필 이미지가 없다면(null) 기본 이미지로 대체
   const url = fileURL || DEFAULT_IMG;
   return (

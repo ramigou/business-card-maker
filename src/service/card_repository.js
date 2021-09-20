@@ -16,6 +16,7 @@ class CardRepository {
     const starCountRef = ref(getDatabase(), `${userId}/cards`);
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
+      // 데이터가 업데이트 될 때마다 콜백함수가 호출됨
       data && onUpdate(data);
     });
     return () => ref.off();

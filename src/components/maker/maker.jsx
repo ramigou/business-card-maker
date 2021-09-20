@@ -32,7 +32,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
     return () => {
       stopSync();
     };
-  }, [userId]);
+  }, [userId, cardRepository]);
 
   // 로그아웃 상태라면 메인 페이지로 이동
   useEffect(() => {
@@ -44,7 +44,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
         history.push("/");
       }
     });
-  });
+  }, [authService, userId, history]);
 
   // 배열 형태로 접근해서 수정/삭제하면 성능이 좋지 않음
   // 따라서 state 자체를 id 값이 key, value가 card인 형태로 만들어서 접근
