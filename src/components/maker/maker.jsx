@@ -25,15 +25,9 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       return;
     }
 
-    // 콜백 함수를 두번째 인자로 전달한 것
-    const stopSync = cardRepository.syncCards(userId, (cards) => {
+    cardRepository.syncCards(userId, (cards) => {
       setCards(cards);
     });
-
-    // unmount 됐을 때 불필요한 네트워크 사용을 제어
-    return () => {
-      stopSync();
-    };
   }, [userId, cardRepository]);
 
   // 로그아웃 상태라면 메인 페이지로 이동

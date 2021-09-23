@@ -28,6 +28,7 @@ class AuthService {
   // login 함수
   login(providerName) {
     const authProvider = this.getProvider(providerName);
+
     return signInWithPopup(this.firebaseAuth, authProvider);
   }
 
